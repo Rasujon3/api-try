@@ -7,6 +7,32 @@
     <title>Fun with api</title>
 </head>
 <body>
-    
+    <h1 id="activity"></h1>
+    <h3 id="type"><a id="exolore_link" href="http://google.com"></a></h3>
+    <script>
+        function doSomething(){
+            fetch('http://www.boredapi.com/api/activity/')
+        .then(res=>res.json())
+        .then(data=>{
+            document.getElementById('activity')
+            .innerText=data.activity;
+        });
+        }
+
+        doSomething();
+        function doSomething2(){
+            fetch('http://www.boredapi.com/api/activity/')
+        .then(res=>res.json())
+        .then(data=>{
+            document.getElementById('type')
+            .innerText=data.type;
+        });
+        }
+        doSomething2();
+        setInterval(()=>{
+            doSomething();
+            doSomething2();
+        },3000)
+    </script>
 </body>
 </html>
